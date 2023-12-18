@@ -1,0 +1,262 @@
+[pratikj@localhost ~]$ cd usr/share/bcc/tools
+bash: cd: usr/share/bcc/tools: No such file or directory
+[pratikj@localhost ~]$ cd usr
+bash: cd: usr: No such file or directory
+[pratikj@localhost ~]$ s /usr/share/bcc/tools/
+bash: s: command not found...
+[pratikj@localhost ~]$ ls /usr/share/bcc/tools/
+argdist       drsnoop         memleak         pythonstat   tclobjnew
+bashreadline  execsnoop       mountsnoop      reset-trace  tclstat
+biolatency    ext4dist        mysqld_qslower  rubycalls    tcpaccept
+biosnoop      ext4slower      nfsdist         rubyflow     tcpconnect
+biotop        filelife        nfsslower       rubygc       tcpconnlat
+bitesize      fileslower      nodegc          rubyobjnew   tcpdrop
+bpflist       filetop         nodestat        rubystat     tcplife
+btrfsdist     funccount       offcputime      runqlat      tcpretrans
+btrfsslower   funclatency     offwaketime     runqlen      tcpsubnet
+cachestat     funcslower      oomkill         runqslower   tcptop
+cachetop      gethostlatency  opensnoop       shmsnoop     tcptracer
+capable       hardirqs        perlcalls       slabratetop  tplist
+cobjnew       javacalls       perlflow        sofdsnoop    trace
+cpudist       javaflow        perlstat        softirqs     ttysnoop
+cpuunclaimed  javagc          phpcalls        solisten     vfscount
+dbslower      javaobjnew      phpflow         sslsniff     vfsstat
+dbstat        javastat        phpstat         stackcount   wakeuptime
+dcsnoop       javathreads     pidpersec       statsnoop    xfsdist
+dcstat        killsnoop       profile         syncsnoop    xfsslower
+deadlock      lib             pythoncalls     syscount
+deadlock.c    llcstat         pythonflow      tclcalls
+doc           mdflush         pythongc        tclflow
+[pratikj@localhost ~]$ cd /usr/share/bcc/tools/
+[pratikj@localhost tools]$ sudo yum install epel-release
+[sudo] password for pratikj: 
+Loaded plugins: fastestmirror, langpacks
+Loading mirror speeds from cached hostfile
+ * base: mirrors.nxtgen.com
+ * centos-sclo-rh: mirrors.nxtgen.com
+ * centos-sclo-sclo: mirrors.nxtgen.com
+ * epel: ftp.riken.jp
+ * extras: mirrors.nxtgen.com
+ * updates: mirrors.nxtgen.com
+Package epel-release-7-14.noarch already installed and latest version
+Nothing to do
+[pratikj@localhost tools]$ sudo ./funclatency do_sys_open
+Tracing 1 functions for "do_sys_open"... Hit Ctrl-C to end.
+^C
+     nsecs               : count     distribution
+         0 -> 1          : 0        |                                        |
+         2 -> 3          : 0        |                                        |
+         4 -> 7          : 0        |                                        |
+         8 -> 15         : 0        |                                        |
+        16 -> 31         : 0        |                                        |
+        32 -> 63         : 0        |                                        |
+        64 -> 127        : 0        |                                        |
+       128 -> 255        : 0        |                                        |
+       256 -> 511        : 0        |                                        |
+       512 -> 1023       : 0        |                                        |
+      1024 -> 2047       : 0        |                                        |
+      2048 -> 4095       : 0        |                                        |
+      4096 -> 8191       : 0        |                                        |
+      8192 -> 16383      : 19       |*********************************       |
+     16384 -> 32767      : 23       |****************************************|
+     32768 -> 65535      : 5        |********                                |
+Detaching...
+[pratikj@localhost tools]$ funclatency -p 5310
+bash: funclatency: command not found...
+[pratikj@localhost tools]$ ./funclatency -p 5310
+usage: funclatency [-h] [-p PID] [-i INTERVAL] [-d DURATION] [-T] [-u] [-m]
+                   [-F] [-r] [-v]
+                   pattern
+funclatency: error: too few arguments
+[pratikj@localhost tools]$ ./funclatency -p 5310 xfs_file_fsync
+could not open bpf map: dist, error: Operation not permitted
+Traceback (most recent call last):
+  File "./funclatency", line 206, in <module>
+    b = BPF(text=bpf_text)
+  File "/usr/lib/python2.7/site-packages/bcc/__init__.py", line 325, in __init__
+    raise Exception("Failed to compile BPF text")
+Exception: Failed to compile BPF text
+[pratikj@localhost tools]$ sudo ./funclatency -p 5310 xfs_file_fsync
+[sudo] password for pratikj: 
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+^C
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 5310 xfs_file_fsync
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+^C
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 5528 xfs_file_fsync
+[sudo] password for pratikj: 
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+^C
+Detaching...
+[pratikj@localhost tools]$ ^C
+[pratikj@localhost tools]$ sudo ./funclatency -p 5930
+[sudo] password for pratikj: 
+usage: funclatency [-h] [-p PID] [-i INTERVAL] [-d DURATION] [-T] [-u] [-m]
+                   [-F] [-r] [-v]
+                   pattern
+funclatency: error: too few arguments
+[pratikj@localhost tools]$ sudo ./funclatency -p 5930 '*'
+Traceback (most recent call last):
+  File "./funclatency", line 210, in <module>
+    b.attach_kprobe(event_re=pattern, fn_name="trace_func_entry")
+  File "/usr/lib/python2.7/site-packages/bcc/__init__.py", line 637, in attach_kprobe
+    self._check_probe_quota(len(matches))
+  File "/usr/lib/python2.7/site-packages/bcc/__init__.py", line 581, in _check_probe_quota
+    raise Exception("Number of open probes would exceed global quota")
+Exception: Number of open probes would exceed global quota
+[pratikj@localhost tools]$ sudo ./funclatency -p 5930 xfs_file_fsync
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+^C
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 6117 xfs_file_fsync
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+^C
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency xfs_file_fsync
+[sudo] password for pratikj: 
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+^C
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency xfs_dir_fsync
+Tracing 1 functions for "xfs_dir_fsync"... Hit Ctrl-C to end.
+^C
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency xfs_file_fsync()
+bash: syntax error near unexpected token `('
+[pratikj@localhost tools]$ sudo ./funclatency xfs_file_fsync -m
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+^C
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency fsync
+0 functions matched by "fsync". Exiting.
+[pratikj@localhost tools]$ sudo ./funclatency -p 6438 -d 60 xfs_file_fsync
+[sudo] password for pratikj: 
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency do_sys_open
+Tracing 1 functions for "do_sys_open"... Hit Ctrl-C to end.
+^C
+     nsecs               : count     distribution
+         0 -> 1          : 1        |                                        |
+         2 -> 3          : 0        |                                        |
+         4 -> 7          : 0        |                                        |
+         8 -> 15         : 0        |                                        |
+        16 -> 31         : 0        |                                        |
+        32 -> 63         : 0        |                                        |
+        64 -> 127        : 0        |                                        |
+       128 -> 255        : 0        |                                        |
+       256 -> 511        : 0        |                                        |
+       512 -> 1023       : 0        |                                        |
+      1024 -> 2047       : 0        |                                        |
+      2048 -> 4095       : 0        |                                        |
+      4096 -> 8191       : 15       |**********                              |
+      8192 -> 16383      : 27       |******************                      |
+     16384 -> 32767      : 34       |***********************                 |
+     32768 -> 65535      : 59       |****************************************|
+     65536 -> 131071     : 4        |**                                      |
+    131072 -> 262143     : 4        |**                                      |
+    262144 -> 524287     : 0        |                                        |
+    524288 -> 1048575    : 1        |                                        |
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 6686 -d 60 xfs_file_fsync
+[sudo] password for pratikj: 
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+
+     nsecs               : count     distribution
+         0 -> 1          : 0        |                                        |
+         2 -> 3          : 0        |                                        |
+         4 -> 7          : 0        |                                        |
+         8 -> 15         : 0        |                                        |
+        16 -> 31         : 0        |                                        |
+        32 -> 63         : 0        |                                        |
+        64 -> 127        : 0        |                                        |
+       128 -> 255        : 0        |                                        |
+       256 -> 511        : 0        |                                        |
+       512 -> 1023       : 0        |                                        |
+      1024 -> 2047       : 0        |                                        |
+      2048 -> 4095       : 0        |                                        |
+      4096 -> 8191       : 0        |                                        |
+      8192 -> 16383      : 0        |                                        |
+     16384 -> 32767      : 0        |                                        |
+     32768 -> 65535      : 0        |                                        |
+     65536 -> 131071     : 0        |                                        |
+    131072 -> 262143     : 0        |                                        |
+    262144 -> 524287     : 0        |                                        |
+    524288 -> 1048575    : 0        |                                        |
+   1048576 -> 2097151    : 0        |                                        |
+   2097152 -> 4194303    : 0        |                                        |
+   4194304 -> 8388607    : 0        |                                        |
+   8388608 -> 16777215   : 279      |*                                       |
+  16777216 -> 33554431   : 7498     |****************************************|
+  33554432 -> 67108863   : 771      |****                                    |
+  67108864 -> 134217727  : 87       |                                        |
+ 134217728 -> 268435455  : 5        |                                        |
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 7295 -d 60 xfs_file_fsync
+[sudo] password for pratikj: 
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 7295 -d 10 xfs_file_fsync
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 7301 -d 10 xfs_file_fsync
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+
+     nsecs               : count     distribution
+         0 -> 1          : 0        |                                        |
+         2 -> 3          : 0        |                                        |
+         4 -> 7          : 0        |                                        |
+         8 -> 15         : 0        |                                        |
+        16 -> 31         : 0        |                                        |
+        32 -> 63         : 0        |                                        |
+        64 -> 127        : 0        |                                        |
+       128 -> 255        : 0        |                                        |
+       256 -> 511        : 0        |                                        |
+       512 -> 1023       : 0        |                                        |
+      1024 -> 2047       : 0        |                                        |
+      2048 -> 4095       : 0        |                                        |
+      4096 -> 8191       : 0        |                                        |
+      8192 -> 16383      : 0        |                                        |
+     16384 -> 32767      : 0        |                                        |
+     32768 -> 65535      : 0        |                                        |
+     65536 -> 131071     : 0        |                                        |
+    131072 -> 262143     : 0        |                                        |
+    262144 -> 524287     : 0        |                                        |
+    524288 -> 1048575    : 0        |                                        |
+   1048576 -> 2097151    : 0        |                                        |
+   2097152 -> 4194303    : 0        |                                        |
+   4194304 -> 8388607    : 10       |                                        |
+   8388608 -> 16777215   : 777      |****************************************|
+  16777216 -> 33554431   : 18       |                                        |
+  33554432 -> 67108863   : 1        |                                        |
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 7414 -d 10 xfs_file_fsync
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 7414 -d 10 -m xfs_file_fsync
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 7499 -d 10 -m xfs_file_fsync
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+
+Detaching...
+[pratikj@localhost tools]$ sudo ./funclatency -p 7562 -d 10 -m xfs_file_fsync
+Tracing 1 functions for "xfs_file_fsync"... Hit Ctrl-C to end.
+
+     msecs               : count     distribution
+         0 -> 1          : 0        |                                        |
+         2 -> 3          : 0        |                                        |
+         4 -> 7          : 25       |*                                       |
+         8 -> 15         : 704      |****************************************|
+        16 -> 31         : 11       |                                        |
+        32 -> 63         : 4        |                                        |
+        64 -> 127        : 5        |                                        |
+Detaching...
+[pratikj@localhost tools]$ 
