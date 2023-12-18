@@ -1,0 +1,69 @@
+[pratikj@localhost NewBcc]$ ps aux | grep fysnc_job.fio
+pratikj   3965  0.0  0.0 112808   984 pts/1    S+   17:22   0:00 grep --color=auto fysnc_job.fio
+[pratikj@localhost NewBcc]$ ps aux | grep fysnc_job.fio
+pratikj   5213  0.0  0.0 112808   984 pts/1    S+   18:12   0:00 grep --color=auto fysnc_job.fio
+[pratikj@localhost NewBcc]$ ps aux | grep fysnc_job.fio
+pratikj   5221  0.0  0.0 112808   984 pts/1    S+   18:12   0:00 grep --color=auto fysnc_job.fio
+[pratikj@localhost NewBcc]$ ps aux | grep fysnc_job.fio
+pratikj   5229  0.0  0.0 112808   984 pts/1    S+   18:12   0:00 grep --color=auto fysnc_job.fio
+[pratikj@localhost NewBcc]$ ps aux | grep fysnc_job.fio
+pratikj   5237  0.0  0.0 112808   984 pts/1    S+   18:12   0:00 grep --color=auto fysnc_job.fio
+[pratikj@localhost NewBcc]$ ps aux | grep fysnc_job.fio
+pratikj   5254  0.0  0.0 112808   984 pts/1    S+   18:12   0:00 grep --color=auto fysnc_job.fio
+[pratikj@localhost NewBcc]$ ps aux | grep fysnc_job.fio
+pratikj   5310  0.0  0.0 112808   984 pts/1    R+   18:13   0:00 grep --color=auto fysnc_job.fio
+[pratikj@localhost NewBcc]$ ps aux | grep fysnc_job.fio
+pratikj   5410  0.0  0.0 112808   984 pts/1    R+   18:17   0:00 grep --color=auto fysnc_job.fio
+[pratikj@localhost NewBcc]$ ps aux | grep fysnc_job.fio
+pratikj   5418  0.0  0.0 112808   984 pts/1    R+   18:18   0:00 grep --color=auto fysnc_job.fio
+[pratikj@localhost NewBcc]$ pidof fsync_job.fio
+[pratikj@localhost NewBcc]$ pgrep -f fsync_job.fio
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+5528
+5534
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+5528
+5534
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+5528
+5534
+[pratikj@localhost NewBcc]$ pidof fsync_job.fio
+[pratikj@localhost NewBcc]$ pidof "fsync_job.fio"
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+5528
+5534
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+5930
+5936
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+6111
+6117
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+6438
+6444
+[pratikj@localhost NewBcc]$ pgrep -f "newo"
+6686
+[pratikj@localhost NewBcc]$ pgrep -f "new.c"
+[pratikj@localhost NewBcc]$ pgrep -f "newo"
+6686
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job2.fio"
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job2.fio"
+[pratikj@localhost NewBcc]$ pgrep -f "fio_config.ini"
+7295
+7301
+[pratikj@localhost NewBcc]$ pidof "fsync_job.fio"
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+7408
+7414
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.fio"
+7408
+7414
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.ini"
+7493
+7499
+[pratikj@localhost NewBcc]$ pgrep -f "fsync_job.ini"
+7556
+7562
+[pratikj@localhost NewBcc]$ 
