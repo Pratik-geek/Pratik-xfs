@@ -1,0 +1,520 @@
+[pratikj@localhost NewBcc]$ fio fsync_job.fio
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+^[[AStarting 1 process
+Jobs: 1 (f=1): [w(1)][100.0%][r=0KiB/s,w=5791KiB/s][r=0,w=1447 IOPS][eta 00m:00s]
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=3652: Sun Dec 17 17:17:00 2023
+  write: IOPS=1621, BW=6486KiB/s (6641kB/s)(190MiB/30008msec)
+    slat (nsec): min=1051, max=16367k, avg=111545.09, stdev=394669.20
+    clat (nsec): min=0, max=181447k, avg=485738.01, stdev=1942383.10
+     lat (nsec): min=0, max=181633k, avg=597280.70, stdev=2021993.82
+    clat percentiles (usec):
+     |  1.00th=[    7],  5.00th=[    8], 10.00th=[    8], 20.00th=[    8],
+     | 30.00th=[    9], 40.00th=[  281], 50.00th=[  359], 60.00th=[  388],
+     | 70.00th=[  429], 80.00th=[  523], 90.00th=[  775], 95.00th=[ 1418],
+     | 99.00th=[ 4228], 99.50th=[ 6259], 99.90th=[17695], 99.95th=[30802],
+     | 99.99th=[86508]
+   bw (  KiB/s): min= 2784, max=22922, per=100.00%, avg=6535.12, stdev=3963.56, samples=58
+   iops        : min=  696, max= 5730, avg=1633.60, stdev=990.86, samples=58
+  lat (nsec)   : 2=0.06%
+  lat (usec)   : 2=0.05%, 4=0.03%, 10=31.84%, 20=2.09%, 50=0.94%
+  lat (usec)   : 100=0.26%, 250=2.35%, 500=40.74%, 750=11.20%, 1000=2.96%
+  lat (msec)   : 2=4.14%, 4=2.27%, 10=0.84%, 20=0.15%, 50=0.05%
+  lat (msec)   : 100=0.02%, 250=0.01%
+  cpu          : usr=4.97%, sys=46.82%, ctx=50543, majf=0, minf=53
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,48655,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=6486KiB/s (6641kB/s), 6486KiB/s-6486KiB/s (6641kB/s-6641kB/s), io=190MiB (199MB), run=30008-30008msec
+
+Disk stats (read/write):
+    dm-2: ios=55/22157, merge=0/0, ticks=365/3045169, in_queue=3067158, util=75.51%, aggrios=1509/21713, aggrmerge=3/338, aggrticks=39875/2995919, aggrin_queue=3062974, aggrutil=80.65%
+  sda: ios=1509/21713, merge=3/338, ticks=39875/2995919, in_queue=3062974, util=80.65%
+[pratikj@localhost NewBcc]$ fio fsync_job.fio
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+Jobs: 1 (f=1): [w(1)][100.0%][r=0KiB/s,w=6593KiB/s][r=0,w=1648 IOPS][eta 00m:00s]
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=3953: Sun Dec 17 17:23:15 2023
+  write: IOPS=1652, BW=6611KiB/s (6769kB/s)(194MiB/30001msec)
+    slat (nsec): min=0, max=32356k, avg=130542.04, stdev=396067.94
+    clat (nsec): min=0, max=32578k, avg=448718.35, stdev=684553.10
+     lat (nsec): min=0, max=33402k, avg=579257.94, stdev=842343.59
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[    7], 10.00th=[    7], 20.00th=[  208],
+     | 30.00th=[  265], 40.00th=[  293], 50.00th=[  318], 60.00th=[  351],
+     | 70.00th=[  408], 80.00th=[  506], 90.00th=[  816], 95.00th=[ 1369],
+     | 99.00th=[ 3195], 99.50th=[ 4080], 99.90th=[ 6652], 99.95th=[ 8094],
+     | 99.99th=[22414]
+   bw (  KiB/s): min= 4000, max=14892, per=100.00%, avg=6699.17, stdev=2369.94, samples=58
+   iops        : min= 1000, max= 3723, avg=1674.60, stdev=592.47, samples=58
+  lat (nsec)   : 2=0.05%, 750=0.01%
+  lat (usec)   : 2=0.01%, 4=0.14%, 10=14.47%, 20=0.89%, 50=0.63%
+  lat (usec)   : 100=0.66%, 250=8.64%, 500=53.99%, 750=9.48%, 1000=3.46%
+  lat (msec)   : 2=4.88%, 4=2.17%, 10=0.49%, 20=0.02%, 50=0.01%
+  cpu          : usr=5.36%, sys=59.64%, ctx=52001, majf=0, minf=53
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,49581,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=6611KiB/s (6769kB/s), 6611KiB/s-6611KiB/s (6769kB/s-6769kB/s), io=194MiB (203MB), run=30001-30001msec
+
+Disk stats (read/write):
+    dm-2: ios=0/26183, merge=0/0, ticks=0/2858079, in_queue=2858111, util=71.87%, aggrios=15/26189, aggrmerge=0/4, aggrticks=759/2844570, aggrin_queue=2845309, aggrutil=71.68%
+  sda: ios=15/26189, merge=0/4, ticks=759/2844570, in_queue=2845309, util=71.68%
+[pratikj@localhost NewBcc]$ nm -D /path/to/your/binary | grep fsync
+nm: '/path/to/your/binary': No such file
+[pratikj@localhost NewBcc]$ fio fsync_job.fio
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+Jobs: 1 (f=1): [w(1)][100.0%][r=0KiB/s,w=7731KiB/s][r=0,w=1932 IOPS][eta 00m:00s]
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=5266: Mon Dec 18 18:12:54 2023
+  write: IOPS=1707, BW=6831KiB/s (6995kB/s)(200MiB/30001msec)
+    slat (nsec): min=0, max=31750k, avg=119834.31, stdev=358961.91
+    clat (nsec): min=0, max=45540k, avg=447676.94, stdev=741426.68
+     lat (nsec): min=0, max=49430k, avg=567453.73, stdev=853925.08
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[    8], 10.00th=[   42], 20.00th=[  233],
+     | 30.00th=[  262], 40.00th=[  289], 50.00th=[  318], 60.00th=[  363],
+     | 70.00th=[  416], 80.00th=[  502], 90.00th=[  766], 95.00th=[ 1205],
+     | 99.00th=[ 2835], 99.50th=[ 3720], 99.90th=[ 7832], 99.95th=[10421],
+     | 99.99th=[26870]
+   bw (  KiB/s): min=  248, max=22818, per=99.06%, avg=6765.68, stdev=2798.31, samples=59
+   iops        : min=   62, max= 5704, avg=1691.22, stdev=699.53, samples=59
+  lat (nsec)   : 2=0.31%, 500=0.01%, 750=0.01%
+  lat (usec)   : 2=0.02%, 4=0.13%, 10=8.51%, 20=0.74%, 50=0.40%
+  lat (usec)   : 100=0.80%, 250=13.49%, 500=55.31%, 750=10.01%, 1000=3.60%
+  lat (msec)   : 2=4.60%, 4=1.66%, 10=0.35%, 20=0.04%, 50=0.02%
+  cpu          : usr=6.21%, sys=52.95%, ctx=53946, majf=1, minf=52
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,51231,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=6831KiB/s (6995kB/s), 6831KiB/s-6831KiB/s (6995kB/s-6995kB/s), io=200MiB (210MB), run=30001-30001msec
+
+Disk stats (read/write):
+    dm-2: ios=0/31652, merge=0/0, ticks=0/2726997, in_queue=2731676, util=74.38%, aggrios=51/31761, aggrmerge=0/18, aggrticks=1821/2738878, aggrin_queue=2746087, aggrutil=74.59%
+  sda: ios=51/31761, merge=0/18, ticks=1821/2738878, in_queue=2746087, util=74.59%
+[pratikj@localhost NewBcc]$ fio fsync_job.fio
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+Jobs: 1 (f=1): [w(1)][100.0%][r=0KiB/s,w=8240KiB/s][r=0,w=2060 IOPS][eta 00m:00s]
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=5307: Mon Dec 18 18:18:52 2023
+  write: IOPS=1894, BW=7577KiB/s (7759kB/s)(2220MiB/300001msec)
+    slat (nsec): min=0, max=53144k, avg=107664.44, stdev=333372.87
+    clat (nsec): min=0, max=63275k, avg=404864.87, stdev=711464.66
+     lat (nsec): min=0, max=63283k, avg=512441.64, stdev=818283.57
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[    7], 10.00th=[    8], 20.00th=[  204],
+     | 30.00th=[  241], 40.00th=[  262], 50.00th=[  285], 60.00th=[  310],
+     | 70.00th=[  363], 80.00th=[  453], 90.00th=[  725], 95.00th=[ 1139],
+     | 99.00th=[ 2671], 99.50th=[ 3523], 99.90th=[ 7504], 99.95th=[11338],
+     | 99.99th=[26608]
+   bw (  KiB/s): min=  183, max=31552, per=100.00%, avg=7589.45, stdev=2745.94, samples=597
+   iops        : min=   45, max= 7888, avg=1897.19, stdev=686.51, samples=597
+  lat (nsec)   : 2=0.54%, 20=0.01%, 50=0.01%, 250=0.01%, 500=0.01%
+  lat (nsec)   : 750=0.01%, 1000=0.01%
+  lat (usec)   : 2=0.04%, 4=0.14%, 10=11.56%, 20=0.70%, 50=0.50%
+  lat (usec)   : 100=0.85%, 250=19.16%, 500=49.50%, 750=7.45%, 1000=3.36%
+  lat (msec)   : 2=4.29%, 4=1.52%, 10=0.30%, 20=0.04%, 50=0.02%
+  lat (msec)   : 100=0.01%
+  cpu          : usr=6.00%, sys=54.09%, ctx=595341, majf=0, minf=54
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,568299,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=7577KiB/s (7759kB/s), 7577KiB/s-7577KiB/s (7759kB/s-7759kB/s), io=2220MiB (2328MB), run=300001-300001msec
+
+Disk stats (read/write):
+    dm-2: ios=2/354957, merge=0/0, ticks=26/29163334, in_queue=29163851, util=76.66%, aggrios=4768/355166, aggrmerge=5/339, aggrticks=239141/29017506, aggrin_queue=29256059, aggrutil=77.10%
+  sda: ios=4768/355166, merge=5/339, ticks=239141/29017506, in_queue=29256059, util=77.10%
+[pratikj@localhost NewBcc]$ fio fsync_job.fio
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+Jobs: 1 (f=1): [w(1)][100.0%][r=0KiB/s,w=6889KiB/s][r=0,w=1722 IOPS][eta 00m:00s]
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=5534: Mon Dec 18 18:27:50 2023
+  write: IOPS=1968, BW=7874KiB/s (8063kB/s)(2307MiB/300001msec)
+    slat (nsec): min=0, max=38563k, avg=100797.78, stdev=270321.56
+    clat (nsec): min=0, max=53902k, avg=383211.92, stdev=495862.81
+     lat (nsec): min=0, max=53952k, avg=483943.25, stdev=586309.64
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[   62], 10.00th=[  190], 20.00th=[  231],
+     | 30.00th=[  251], 40.00th=[  265], 50.00th=[  281], 60.00th=[  302],
+     | 70.00th=[  347], 80.00th=[  420], 90.00th=[  627], 95.00th=[  963],
+     | 99.00th=[ 2114], 99.50th=[ 2769], 99.90th=[ 4817], 99.95th=[ 6325],
+     | 99.99th=[17695]
+   bw (  KiB/s): min=   15, max=23377, per=100.00%, avg=7927.60, stdev=2470.42, samples=595
+   iops        : min=    3, max= 5844, avg=1981.72, stdev=617.62, samples=595
+  lat (nsec)   : 2=0.23%, 50=0.01%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (nsec)   : 1000=0.01%
+  lat (usec)   : 2=0.05%, 4=0.12%, 10=4.07%, 20=0.30%, 50=0.17%
+  lat (usec)   : 100=0.91%, 250=24.10%, 500=55.63%, 750=6.84%, 1000=2.91%
+  lat (msec)   : 2=3.49%, 4=1.01%, 10=0.14%, 20=0.02%, 50=0.01%
+  lat (msec)   : 100=0.01%
+  cpu          : usr=5.92%, sys=54.88%, ctx=619707, majf=0, minf=53
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,590526,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=7874KiB/s (8063kB/s), 7874KiB/s-7874KiB/s (8063kB/s-8063kB/s), io=2307MiB (2419MB), run=300001-300001msec
+
+Disk stats (read/write):
+    dm-2: ios=2/356593, merge=0/0, ticks=7/23503448, in_queue=23504033, util=69.60%, aggrios=394/356404, aggrmerge=0/820, aggrticks=13987/23356013, aggrin_queue=23369639, aggrutil=69.61%
+  sda: ios=394/356404, merge=0/820, ticks=13987/23356013, in_queue=23369639, util=69.61%
+[pratikj@localhost NewBcc]$ fio fsync_job.fio
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+Jobs: 1 (f=1): [w(1)][100.0%][r=0KiB/s,w=8816KiB/s][r=0,w=2204 IOPS][eta 00m:00s]
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=5936: Mon Dec 18 19:02:10 2023
+  write: IOPS=1827, BW=7309KiB/s (7485kB/s)(2141MiB/300009msec)
+    slat (nsec): min=0, max=33737k, avg=104630.01, stdev=296630.77
+    clat (nsec): min=0, max=47205k, avg=408069.25, stdev=595843.78
+     lat (nsec): min=0, max=47263k, avg=512631.96, stdev=696836.21
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[    7], 10.00th=[   91], 20.00th=[  231],
+     | 30.00th=[  258], 40.00th=[  277], 50.00th=[  302], 60.00th=[  334],
+     | 70.00th=[  383], 80.00th=[  453], 90.00th=[  668], 95.00th=[ 1045],
+     | 99.00th=[ 2507], 99.50th=[ 3261], 99.90th=[ 6194], 99.95th=[ 8848],
+     | 99.99th=[21890]
+   bw (  KiB/s): min=  343, max=30562, per=100.00%, avg=7509.43, stdev=2956.94, samples=583
+   iops        : min=   85, max= 7640, avg=1877.19, stdev=739.24, samples=583
+  lat (nsec)   : 2=0.32%, 100=0.01%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (nsec)   : 1000=0.01%
+  lat (usec)   : 2=0.01%, 4=0.12%, 10=8.00%, 20=0.53%, 50=0.36%
+  lat (usec)   : 100=0.79%, 250=16.87%, 500=56.60%, 750=8.05%, 1000=2.98%
+  lat (msec)   : 2=3.72%, 4=1.36%, 10=0.25%, 20=0.03%, 50=0.01%
+  cpu          : usr=5.97%, sys=53.38%, ctx=575778, majf=1, minf=52
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,548213,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=7309KiB/s (7485kB/s), 7309KiB/s-7309KiB/s (7485kB/s-7485kB/s), io=2141MiB (2245MB), run=300009-300009msec
+
+Disk stats (read/write):
+    dm-2: ios=1/287835, merge=0/0, ticks=29/25027965, in_queue=25028913, util=63.74%, aggrios=3028/288133, aggrmerge=26/8404, aggrticks=83940/24916007, aggrin_queue=25003557, aggrutil=64.39%
+  sda: ios=3028/288133, merge=26/8404, ticks=83940/24916007, in_queue=25003557, util=64.39%
+[pratikj@localhost NewBcc]$ fio fsync_job.fio
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+^Cbs: 1 (f=1): [w(1)][44.0%][r=0KiB/s,w=9294KiB/s][r=0,w=2323 IOPS][eta 02m:48s]
+fio: terminating on signal 2
+
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=6117: Mon Dec 18 19:05:30 2023
+  write: IOPS=1963, BW=7853KiB/s (8041kB/s)(1011MiB/131870msec)
+    slat (nsec): min=0, max=29688k, avg=102614.96, stdev=294689.59
+    clat (nsec): min=0, max=42232k, avg=387015.81, stdev=559789.89
+     lat (nsec): min=0, max=42286k, avg=489573.27, stdev=665073.95
+    clat percentiles (usec):
+     |  1.00th=[    6],  5.00th=[    7], 10.00th=[   10], 20.00th=[  229],
+     | 30.00th=[  255], 40.00th=[  273], 50.00th=[  293], 60.00th=[  326],
+     | 70.00th=[  371], 80.00th=[  433], 90.00th=[  619], 95.00th=[  963],
+     | 99.00th=[ 2311], 99.50th=[ 3097], 99.90th=[ 5866], 99.95th=[ 7963],
+     | 99.99th=[19530]
+   bw (  KiB/s): min=  152, max=53680, per=100.00%, avg=7924.98, stdev=3935.23, samples=260
+   iops        : min=   38, max=13420, avg=1981.07, stdev=983.81, samples=260
+  lat (nsec)   : 2=0.14%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (usec)   : 2=0.07%, 4=0.03%, 10=9.82%, 20=0.59%, 50=0.28%
+  lat (usec)   : 100=0.74%, 250=15.98%, 500=57.69%, 750=7.25%, 1000=2.68%
+  lat (msec)   : 2=3.33%, 4=1.15%, 10=0.21%, 20=0.02%, 50=0.01%
+  cpu          : usr=5.17%, sys=54.73%, ctx=271255, majf=0, minf=53
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,258878,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=7853KiB/s (8041kB/s), 7853KiB/s-7853KiB/s (8041kB/s-8041kB/s), io=1011MiB (1060MB), run=131870-131870msec
+
+Disk stats (read/write):
+    dm-2: ios=0/133113, merge=0/0, ticks=0/11163543, in_queue=11180448, util=66.16%, aggrios=186/132956, aggrmerge=4/124, aggrticks=22480/11133095, aggrin_queue=11172930, aggrutil=66.26%
+  sda: ios=186/132956, merge=4/124, ticks=22480/11133095, in_queue=11172930, util=66.26%
+[pratikj@localhost NewBcc]$ fio fsync_job.fio
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+^Cbs: 1 (f=1): [w(1)][63.5%][r=0KiB/s,w=4392KiB/s][r=0,w=1098 IOPS][eta 01m:50s]
+fio: terminating on signal 2
+
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=6444: Mon Dec 18 21:28:50 2023
+  write: IOPS=1978, BW=7914KiB/s (8104kB/s)(1473MiB/190563msec)
+    slat (nsec): min=0, max=30288k, avg=102822.74, stdev=328892.76
+    clat (nsec): min=0, max=56578k, avg=383451.45, stdev=661670.52
+     lat (nsec): min=0, max=56718k, avg=486084.77, stdev=777108.89
+    clat percentiles (nsec):
+     |  1.00th=[       0],  5.00th=[    5728], 10.00th=[    6944],
+     | 20.00th=[  185344], 30.00th=[  228352], 40.00th=[  246784],
+     | 50.00th=[  264192], 60.00th=[  288768], 70.00th=[  325632],
+     | 80.00th=[  411648], 90.00th=[  700416], 95.00th=[ 1122304],
+     | 99.00th=[ 2736128], 99.50th=[ 3555328], 99.90th=[ 6979584],
+     | 99.95th=[10027008], 99.99th=[22151168]
+   bw (  KiB/s): min= 1552, max=53258, per=100.00%, avg=8020.25, stdev=4427.27, samples=375
+   iops        : min=  388, max=13314, avg=2004.88, stdev=1106.81, samples=375
+  lat (nsec)   : 2=4.03%, 250=0.01%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (usec)   : 2=0.03%, 4=0.12%, 10=8.91%, 20=0.67%, 50=1.20%
+  lat (usec)   : 100=1.47%, 250=24.61%, 500=43.92%, 750=5.77%, 1000=2.77%
+  lat (msec)   : 2=4.48%, 4=1.64%, 10=0.34%, 20=0.04%, 50=0.01%
+  lat (msec)   : 100=0.01%
+  cpu          : usr=5.04%, sys=55.30%, ctx=395878, majf=0, minf=53
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,377020,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=7914KiB/s (8104kB/s), 7914KiB/s-7914KiB/s (8104kB/s-8104kB/s), io=1473MiB (1544MB), run=190563-190563msec
+
+Disk stats (read/write):
+    dm-2: ios=1/179205, merge=0/0, ticks=24/16341277, in_queue=16352116, util=67.77%, aggrios=1072/179189, aggrmerge=676/65, aggrticks=68350/16284901, aggrin_queue=16363107, aggrutil=68.23%
+  sda: ios=1072/179189, merge=676/65, ticks=68350/16284901, in_queue=16363107, util=68.23%
+[pratikj@localhost NewBcc]$ gedit new.c
+[pratikj@localhost NewBcc]$ gcc newo new.c -lpthread
+gcc: error: newo: No such file or directory
+[pratikj@localhost NewBcc]$ gcc new.c newo -lpthread
+gcc: error: newo: No such file or directory
+[pratikj@localhost NewBcc]$ gcc -o newo new.c -lpthread
+[pratikj@localhost NewBcc]$ ./newo 4 4096 "Buffered I/O"
+[pratikj@localhost NewBcc]$ fio fsync_job2.fio
+fsync: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=sync, iodepth=1
+fio: failed parsing group_reporting=false
+Bad option <stat_on_exit=true>
+fio: job profile dropped
+[pratikj@localhost NewBcc]$ fio fsync_job2.fio
+Bad option <stat_on_exit=true>
+fio: job global dropped
+[pratikj@localhost NewBcc]$ fio fsync_job2.fio
+Bad option <stat_on_exit=true>
+fio: job global dropped
+[pratikj@localhost NewBcc]$ gedit fio_config.ini
+[pratikj@localhost NewBcc]$ fio fsync_job2.ini
+fio: unable to open 'fsync_job2.ini' job file
+[pratikj@localhost NewBcc]$ fio fsync_job2.ini
+fio: unable to open 'fsync_job2.ini' job file
+[pratikj@localhost NewBcc]$ fio fsync_job2.fio
+Bad option <stat_on_exit=true>
+fio: job global dropped
+[pratikj@localhost NewBcc]$ fio fio_config.ini
+fsync: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=sync, iodepth=1
+fio-3.7
+Starting 1 process
+fsync: Laying out IO file (1 file / 0MiB)
+
+fsync: (groupid=0, jobs=1): err= 0: pid=7256: Mon Dec 18 22:06:47 2023
+  write: IOPS=1000, BW=4000KiB/s (4096kB/s)(4096B/1msec)
+    clat (nsec): min=98538, max=98538, avg=98538.00, stdev= 0.00
+     lat (nsec): min=101293, max=101293, avg=101293.00, stdev= 0.00
+    clat percentiles (nsec):
+     |  1.00th=[98816],  5.00th=[98816], 10.00th=[98816], 20.00th=[98816],
+     | 30.00th=[98816], 40.00th=[98816], 50.00th=[98816], 60.00th=[98816],
+     | 70.00th=[98816], 80.00th=[98816], 90.00th=[98816], 95.00th=[98816],
+     | 99.00th=[98816], 99.50th=[98816], 99.90th=[98816], 99.95th=[98816],
+     | 99.99th=[98816]
+  lat (usec)   : 100=100.00%
+  cpu          : usr=0.00%, sys=0.00%, ctx=0, majf=0, minf=29
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=4000KiB/s (4096kB/s), 4000KiB/s-4000KiB/s (4096kB/s-4096kB/s), io=4096B (4096B), run=1-1msec
+
+Disk stats (read/write):
+    dm-2: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%, aggrios=0/0, aggrmerge=0/0, aggrticks=0/0, aggrin_queue=0, aggrutil=0.00%
+  sda: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%
+[pratikj@localhost NewBcc]$ fio fio_config.ini
+fsync: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=sync, iodepth=1
+fio-3.7
+Starting 1 process
+fsync: Laying out IO file (1 file / 200MiB)
+Jobs: 1 (f=1): [w(1)][100.0%][r=0KiB/s,w=340KiB/s][r=0,w=85 IOPS][eta 00m:00s]
+fsync: (groupid=0, jobs=1): err= 0: pid=7301: Mon Dec 18 22:11:15 2023
+  write: IOPS=80, BW=322KiB/s (330kB/s)(56.7MiB/180008msec)
+    clat (nsec): min=0, max=54729k, avg=134708.12, stdev=828521.62
+     lat (nsec): min=0, max=54730k, avg=136349.58, stdev=828672.82
+    clat percentiles (nsec):
+     |  1.00th=[       0],  5.00th=[       0], 10.00th=[       0],
+     | 20.00th=[       0], 30.00th=[       0], 40.00th=[   37632],
+     | 50.00th=[   45824], 60.00th=[   51968], 70.00th=[   84480],
+     | 80.00th=[  122368], 90.00th=[  236544], 95.00th=[  518144],
+     | 99.00th=[ 1003520], 99.50th=[ 1810432], 99.90th=[ 8290304],
+     | 99.95th=[13959168], 99.99th=[49545216]
+   bw (  KiB/s): min=   30, max=  392, per=99.81%, avg=321.39, stdev=64.96, samples=360
+   iops        : min=    7, max=   98, avg=80.01, stdev=16.26, samples=360
+  lat (nsec)   : 2=30.95%, 100=0.01%
+  lat (usec)   : 2=0.03%, 4=0.01%, 10=0.06%, 20=0.18%, 50=24.27%
+  lat (usec)   : 100=16.13%, 250=18.91%, 500=4.30%, 750=1.84%, 1000=0.41%
+  lat (msec)   : 2=2.47%, 4=0.28%, 10=0.08%, 20=0.05%, 50=0.02%
+  lat (msec)   : 100=0.01%
+  fsync/fdatasync/sync_file_range:
+    sync (msec): min=4, max=358, avg=12.25, stdev= 8.02
+    sync percentiles (msec):
+     |  1.00th=[    8],  5.00th=[    9], 10.00th=[    9], 20.00th=[   10],
+     | 30.00th=[   11], 40.00th=[   11], 50.00th=[   12], 60.00th=[   12],
+     | 70.00th=[   13], 80.00th=[   13], 90.00th=[   15], 95.00th=[   18],
+     | 99.00th=[   42], 99.50th=[   58], 99.90th=[  101], 99.95th=[  113],
+     | 99.99th=[  347]
+  cpu          : usr=0.69%, sys=12.04%, ctx=43531, majf=0, minf=34
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,14505,0,14505 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=322KiB/s (330kB/s), 322KiB/s-322KiB/s (330kB/s-330kB/s), io=56.7MiB (59.4MB), run=180008-180008msec
+
+Disk stats (read/write):
+    dm-2: ios=0/43904, merge=0/0, ticks=0/142187, in_queue=142203, util=75.60%, aggrios=127/43783, aggrmerge=15/931, aggrticks=3162/139879, aggrin_queue=142937, aggrutil=75.99%
+  sda: ios=127/43783, merge=15/931, ticks=3162/139879, in_queue=142937, util=75.99%
+[pratikj@localhost NewBcc]$ fio fsync_job.fio
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+^Cbs: 1 (f=1): [w(1)][35.0%][r=0KiB/s,w=8480KiB/s][r=0,w=2120 IOPS][eta 03m:15s] 
+fio: terminating on signal 2
+
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=7414: Mon Dec 18 22:13:16 2023
+  write: IOPS=2127, BW=8509KiB/s (8714kB/s)(874MiB/105184msec)
+    slat (nsec): min=0, max=37102k, avg=95805.84, stdev=440125.93
+    clat (nsec): min=0, max=138865k, avg=352983.49, stdev=1059102.58
+     lat (nsec): min=0, max=138866k, avg=448345.85, stdev=1211087.39
+    clat percentiles (nsec):
+     |  1.00th=[       0],  5.00th=[       0], 10.00th=[       0],
+     | 20.00th=[    5600], 30.00th=[    6176], 40.00th=[    7008],
+     | 50.00th=[   11840], 60.00th=[  228352], 70.00th=[  292864],
+     | 80.00th=[  423936], 90.00th=[ 1003520], 95.00th=[ 1400832],
+     | 99.00th=[ 3817472], 99.50th=[ 5275648], 99.90th=[11730944],
+     | 99.95th=[16580608], 99.99th=[35389440]
+   bw (  KiB/s): min=  143, max=77225, per=100.00%, avg=8642.07, stdev=9517.30, samples=206
+   iops        : min=   35, max=19306, avg=2160.27, stdev=2379.29, samples=206
+  lat (nsec)   : 2=15.38%, 250=0.01%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (usec)   : 2=0.04%, 4=0.05%, 10=33.92%, 20=1.93%, 50=1.20%
+  lat (usec)   : 100=2.33%, 250=8.04%, 500=20.19%, 750=3.88%, 1000=2.03%
+  lat (msec)   : 2=7.69%, 4=2.39%, 10=0.78%, 20=0.11%, 50=0.03%
+  lat (msec)   : 100=0.01%, 250=0.01%
+  cpu          : usr=4.36%, sys=47.38%, ctx=230478, majf=0, minf=53
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,223760,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=8509KiB/s (8714kB/s), 8509KiB/s-8509KiB/s (8714kB/s-8714kB/s), io=874MiB (917MB), run=105184-105184msec
+
+Disk stats (read/write):
+    dm-2: ios=0/85539, merge=0/0, ticks=0/10668072, in_queue=10712321, util=74.33%, aggrios=574/85415, aggrmerge=4/1976, aggrticks=79068/10651753, aggrin_queue=10789050, aggrutil=74.39%
+  sda: ios=574/85415, merge=4/1976, ticks=79068/10651753, in_queue=10789050, util=74.39%
+[pratikj@localhost NewBcc]$ fio fsync_job.ini
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+^Cbs: 1 (f=1): [w(1)][11.3%][r=0KiB/s,w=24.5MiB/s][r=0,w=6267 IOPS][eta 04m:27s]
+fio: terminating on signal 2
+
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=7499: Mon Dec 18 22:14:30 2023
+  write: IOPS=2237, BW=8952KiB/s (9166kB/s)(295MiB/33715msec)
+    slat (nsec): min=0, max=37119k, avg=89152.56, stdev=431887.10
+    clat (nsec): min=0, max=49793k, avg=342383.33, stdev=988563.28
+     lat (nsec): min=0, max=49801k, avg=431071.38, stdev=1147953.15
+    clat percentiles (nsec):
+     |  1.00th=[       0],  5.00th=[       0], 10.00th=[       0],
+     | 20.00th=[    5792], 30.00th=[    6304], 40.00th=[    7328],
+     | 50.00th=[    8096], 60.00th=[  175104], 70.00th=[  284672],
+     | 80.00th=[  407552], 90.00th=[  995328], 95.00th=[ 1400832],
+     | 99.00th=[ 4145152], 99.50th=[ 5799936], 99.90th=[11468800],
+     | 99.95th=[14614528], 99.99th=[29753344]
+   bw (  KiB/s): min= 2506, max=55457, per=100.00%, avg=9081.85, stdev=9881.40, samples=66
+   iops        : min=  626, max=13864, avg=2270.24, stdev=2470.36, samples=66
+  lat (nsec)   : 2=14.26%, 20=0.01%, 50=0.01%, 250=0.01%, 500=0.01%
+  lat (nsec)   : 750=0.01%, 1000=0.01%
+  lat (usec)   : 2=0.02%, 4=0.05%, 10=40.82%, 20=2.30%, 50=0.99%
+  lat (usec)   : 100=0.49%, 250=6.53%, 500=18.61%, 750=4.02%, 1000=1.91%
+  lat (msec)   : 2=6.46%, 4=2.39%, 10=0.99%, 20=0.12%, 50=0.03%
+  cpu          : usr=5.15%, sys=47.64%, ctx=77441, majf=0, minf=53
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,75450,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=8952KiB/s (9166kB/s), 8952KiB/s-8952KiB/s (9166kB/s-9166kB/s), io=295MiB (309MB), run=33715-33715msec
+
+Disk stats (read/write):
+    dm-2: ios=0/23914, merge=0/0, ticks=0/3520274, in_queue=3528640, util=75.18%, aggrios=0/23832, aggrmerge=0/17, aggrticks=0/3525071, aggrin_queue=3540516, aggrutil=75.24%
+  sda: ios=0/23832, merge=0/17, ticks=0/3525071, in_queue=3540516, util=75.24%
+[pratikj@localhost NewBcc]$ fio fsync_job.ini
+fsync_workload: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=posixaio, iodepth=1
+fio-3.7
+Starting 1 process
+^Cbs: 1 (f=1): [w(1)][13.6%][r=0KiB/s,w=252KiB/s][r=0,w=63 IOPS][eta 04m:20s]
+fio: terminating on signal 2
+
+fsync_workload: (groupid=0, jobs=1): err= 0: pid=7562: Mon Dec 18 22:16:06 2023
+  write: IOPS=69, BW=277KiB/s (284kB/s)(11.0MiB/40714msec)
+    slat (nsec): min=0, max=47910k, avg=194786.83, stdev=1178133.73
+    clat (nsec): min=0, max=30906k, avg=910238.15, stdev=1343231.70
+     lat (nsec): min=0, max=52920k, avg=1100761.84, stdev=1963585.51
+    clat percentiles (nsec):
+     |  1.00th=[       0],  5.00th=[       0], 10.00th=[  358400],
+     | 20.00th=[  468992], 30.00th=[  552960], 40.00th=[  643072],
+     | 50.00th=[  733184], 60.00th=[  839680], 70.00th=[ 1003520],
+     | 80.00th=[ 1056768], 90.00th=[ 1417216], 95.00th=[ 2007040],
+     | 99.00th=[ 3850240], 99.50th=[ 6651904], 99.90th=[26083328],
+     | 99.95th=[28180480], 99.99th=[30801920]
+   bw (  KiB/s): min=   93, max=  360, per=99.62%, avg=275.95, stdev=65.33, samples=81
+   iops        : min=   23, max=   90, avg=68.63, stdev=16.34, samples=81
+  lat (nsec)   : 2=5.56%
+  lat (usec)   : 2=0.04%, 4=0.04%, 10=0.07%, 50=0.32%, 100=0.57%
+  lat (usec)   : 250=1.59%, 500=16.05%, 750=27.43%, 1000=18.14%
+  lat (msec)   : 2=24.88%, 4=4.39%, 10=0.53%, 20=0.21%, 50=0.18%
+  fsync/fdatasync/sync_file_range:
+    sync (msec): min=7, max=190, avg=13.16, stdev= 9.75
+    sync percentiles (msec):
+     |  1.00th=[    9],  5.00th=[   10], 10.00th=[   10], 20.00th=[   11],
+     | 30.00th=[   11], 40.00th=[   11], 50.00th=[   12], 60.00th=[   12],
+     | 70.00th=[   13], 80.00th=[   14], 90.00th=[   16], 95.00th=[   20],
+     | 99.00th=[   64], 99.50th=[   83], 99.90th=[  117], 99.95th=[  146],
+     | 99.99th=[  190]
+  cpu          : usr=0.56%, sys=8.52%, ctx=6137, majf=0, minf=55
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,2822,0,2822 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=277KiB/s (284kB/s), 277KiB/s-277KiB/s (284kB/s-284kB/s), io=11.0MiB (11.6MB), run=40714-40714msec
+
+Disk stats (read/write):
+    dm-2: ios=0/8460, merge=0/0, ticks=0/27367, in_queue=27369, util=66.88%, aggrios=191/8488, aggrmerge=1/5, aggrticks=4477/27738, aggrin_queue=32201, aggrutil=67.92%
+  sda: ios=191/8488, merge=1/5, ticks=4477/27738, in_queue=32201, util=67.92%
+[pratikj@localhost NewBcc]$ 
