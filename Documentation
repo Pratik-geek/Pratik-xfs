@@ -1,0 +1,3 @@
+cd /usr/share/bcc/tools -> ./funclatency do_sys_open
+
+funclatency docs  -  https://manpages.ubuntu.com/manpages/focal/en/man8/funclatency-bpfcc.8.html
