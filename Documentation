@@ -1,3 +1,6 @@
 cd /usr/share/bcc/tools -> ./funclatency do_sys_open
 
 funclatency docs  -  https://manpages.ubuntu.com/manpages/focal/en/man8/funclatency-bpfcc.8.html
+
+18Nov 7.30 pm  xfs_file_fsync not plotting histogram with fio
+      9.30 pm  plotted successfully with manual program
