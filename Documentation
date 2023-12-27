@@ -3,5 +3,9 @@ cd /usr/share/bcc/tools -> ./funclatency do_sys_open
 funclatency docs  -  https://manpages.ubuntu.com/manpages/focal/en/man8/funclatency-bpfcc.8.html
 ID of program       pgrep -f "name_of_program"
 
-18Nov 7.30 pm  xfs_file_fsync not plotting histogram with fio
-      9.30 pm  plotted successfully with manual program
+18Nov 7.30 pm      xfs_file_fsync not plotting histogram with fio
+      9.30 pm      plotted successfully with manual program
+
+27Nov 7.15 pm      created a fio file with direct i/o and written a script to execute it.
+                   discovered funcgraph and got subfunctions of fsync
+            
